@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ridvan Imren · Staff iOS Engineer</title>
+<meta name="description" content="Staff iOS Engineer building banking, e-commerce and travel apps used by millions. Swift, SwiftUI, UIKit, Swift Concurrency.">
+<meta property="og:title" content="Ridvan Imren · Staff iOS Engineer">
+<meta property="og:description" content="iOS apps used by millions across fintech, e-commerce and travel, plus an indie game on the App Store.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ridvanimren.github.io/">
+<meta property="og:image" content="https://ridvanimren.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232b35a8'/%3E%3Ctext x='32' y='42' font-family='-apple-system,Helvetica,Arial' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3ERI%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f5f5f7;
+    --card: #ffffff;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --line: #e3e3e8;
+    --accent: #2b35a8;
+    --accent-soft: #eceefb;
+    --taboo: #e8552f;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b0b0f;
+      --bg-soft: #141419;
+      --card: #17171d;
+      --text: #f5f5f7;
+      --muted: #a1a1a8;
+      --line: #2a2a32;
+      --accent: #8f98ff;
+      --accent-soft: #1d1f3a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 56px 0; }
+  section + section { border-top: 1px solid var(--line); }
+  h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
+  h2 { font-size: 32px; margin-bottom: 8px; }
+  .lede { color: var(--muted); margin: 0 0 28px; max-width: 640px; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: saturate(180%) blur(16px); -webkit-backdrop-filter: saturate(180%) blur(16px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  nav .brand { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; background: var(--accent); color: var(--bg); font-size: 13px; font-weight: 700; letter-spacing: .02em; }
+  nav .brand:hover { text-decoration: none; }
+  nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 15px; }
+  nav ul a { color: var(--muted); }
+  nav ul a:hover { color: var(--text); text-decoration: none; }
+
+  /* Hero */
+  .hero { padding: 56px 0 24px; }
+  .hero h1 { font-size: clamp(34px, 5vw, 46px); font-weight: 800; }
+  .hero .role { margin: 6px 0 0; font-size: 18px; font-weight: 600; color: var(--accent); }
+  .hero .pitch { margin: 14px 0 24px; max-width: 680px; font-size: 18px; color: var(--muted); }
+  .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px; font-size: 15px; font-weight: 600; border: 1px solid var(--line); color: var(--text); background: var(--card); }
+  .btn:hover { text-decoration: none; border-color: var(--muted); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #0b0b0f; } }
+  .btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+  /* Featured indie app */
+  .feature { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center; }
+  .app-head { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+  .app-head img { width: 72px; height: 72px; border-radius: 16px; box-shadow: var(--shadow); }
+  .app-head h3 { font-size: 28px; }
+  .app-head small { color: var(--muted); font-size: 15px; }
+  .feature ul { padding-left: 20px; margin: 18px 0 24px; }
+  .feature li { margin: 6px 0; }
+  .feature .tags { padding-left: 0; margin: 0; }
+  .feature .tags li { margin: 0; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .tags li { font-size: 13px; padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+  .shots { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 4px 18px; scrollbar-width: thin; }
+  .shots img { flex: 0 0 auto; width: calc((100% - 28px) / 3); aspect-ratio: 598 / 1300; height: auto; border-radius: 22px; scroll-snap-align: start; box-shadow: var(--shadow); background: var(--taboo); }
+  .appstore { display: inline-flex; align-items: center; gap: 10px; background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 12px; font-weight: 600; font-size: 15px; margin-top: 20px; }
+  .appstore:hover { text-decoration: none; opacity: .88; }
+  .appstore svg { width: 20px; height: 20px; fill: currentColor; }
+
+  /* Production apps */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; box-shadow: var(--shadow); }
+  .card .top { display: flex; gap: 14px; align-items: center; margin-bottom: 14px; }
+  .card .top img { width: 56px; height: 56px; border-radius: 13px; flex: none; border: 1px solid var(--line); }
+  .card h3 { font-size: 20px; }
+  .card .meta { color: var(--muted); font-size: 14px; }
+  .nw { white-space: nowrap; }
+  .card ul { padding-left: 18px; margin: 4px 0 18px; font-size: 15px; }
+  .card li { margin: 4px 0; }
+  .card .tags { margin-top: auto; padding-left: 0; }
+  .card .tags li { margin: 0; }
+  .card .link { margin-top: 16px; font-size: 15px; font-weight: 600; }
+
+  /* Experience */
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 16px 0; border-top: 1px solid var(--line); }
+  .timeline li:first-child { border-top: 0; }
+  .timeline .when { color: var(--muted); font-size: 15px; }
+  .timeline h3 { font-size: 19px; }
+  .timeline .org { color: var(--accent); font-weight: 600; }
+  .timeline p { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px 40px; }
+  .skills h3 { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 12px; }
+
+  /* Contact */
+  .contact { text-align: center; }
+  .contact h2 { font-size: 40px; }
+  .contact .lede { margin: 12px auto 28px; }
+  .contact .buttons { justify-content: center; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 32px 0 48px; }
+
+  @media (max-width: 820px) {
+    section { padding: 44px 0; }
+    .hero { padding: 36px 0 12px; }
+    .hero .pitch { font-size: 17px; }
+    .feature { grid-template-columns: 1fr; gap: 28px; }
+    .shots { order: 2; margin: 0 -24px; padding-left: 24px; padding-right: 24px; scroll-padding-left: 24px; }
+    .shots img { width: 180px; }
+    .timeline li { grid-template-columns: 1fr; gap: 4px; }
+    nav ul { display: none; }
+  }
+  @media (max-width: 420px) {
+    .wrap { padding: 0 16px; }
+    .shots { margin: 0 -16px; padding-left: 16px; padding-right: 16px; scroll-padding-left: 16px; }
+    .grid { grid-template-columns: 1fr; }
+    .hero .buttons { gap: 8px; }
+    .hero .btn { padding: 9px 14px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Ridvan Imren, back to top">RI</a>
+    <ul>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#indie">Indie</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1>Ridvan Imren</h1>
+    <p class="role">Staff iOS Engineer · Istanbul</p>
+    <p class="pitch">7+ years as a software developer across fintech, e-commerce, travel and aerospace, building iOS apps used by millions. I design app architecture, own features end to end, and ship secure, polished code in Swift, SwiftUI and UIKit.</p>
+    <div class="buttons">
+      <a class="btn primary" href="mailto:imrenridvan@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4.2-8 5-8-5V6l8 5 8-5v2.2Z"/></svg>
+        Email
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/ridvan-imren/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</header>
+
+<section id="apps">
+  <div class="wrap">
+    <div class="eyebrow">Production work</div>
+    <h2>Apps I've helped build</h2>
+    <p class="lede">Large consumer apps in banking, payments, luxury retail and aviation.</p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="top">
+          <img src="assets/icons/stcbank.jpg" alt="STC Bank icon" loading="lazy">
+          <div><h3>STC Bank</h3><div class="meta">Digital bank · Saudi Arabia · <span class="nw">2025–now</span></div></div>
+        </div>
+        <ul>
+          <li>Owned technical design and implementation of core features: Credit, Transactions, Marketplace and Profile</li>
+          <li>Worked from requirements to release with product, design, backend and QA</li>
+        </ul>
+        <ul class="tags"><li>Feature owner</li><li>Fintech</li></ul>
+        <a class="link" href="https://apps.apple.com/sa/app/stc-bank/id6458546150" target="_blank" rel="noopener">View on App Store →</a>
+      </article>
+
+      <article class="card">
+        <div class="top">
+          <img src="assets/icons/ounass.jpg" alt="Ounass icon" loading="lazy">
+          <div><h3>Ounass</h3><div class="meta">Luxury e-commerce · Middle East · <span class="nw">2023–25</span></div></div>
+        </div>
+        <ul>
+          <li>Built features across the product listing and detail pages for the Catalog team, including AI-powered Recommended for You, Recently Viewed and Similar Products</li>
+          <li>Rebuilt search and category selection for performance</li>
+          <li>Feature flags and A/B experiments with Statsig and Remote Config</li>
+        </ul>
+        <ul class="tags"><li>E-commerce</li><li>Statsig</li><li>A/B testing</li></ul>
+        <a class="link" href="https://apps.apple.com/ae/app/id1201717043" target="_blank" rel="noopener">View on App Store →</a>
+      </article>
+
+      <article class="card">
+        <div class="top">
+          <img src="assets/icons/pegasus.jpg" alt="Pegasus Airlines icon" loading="lazy">
+          <div><h3>Pegasus Airlines</h3><div class="meta">Airline · Türkiye · <span class="nw">2022–23</span></div></div>
+        </div>
+        <ul>
+          <li>Built AR Luggage Measurement with ARKit and SceneKit, so passengers can measure cabin bags with the camera</li>
+          <li>Seat Selection, Check-in and Campaigns, plus codebase migrations and Crashlytics-driven stability fixes</li>
+        </ul>
+        <ul class="tags"><li>ARKit</li><li>SceneKit</li><li>Crashlytics</li></ul>
+        <a class="link" href="https://apps.apple.com/tr/app/id723672499" target="_blank" rel="noopener">View on App Store →</a>
+      </article>
+
+      <article class="card">
+        <div class="top">
+          <img src="assets/icons/masterpass.png" alt="Masterpass icon" loading="lazy">
+          <div><h3>Masterpass</h3><div class="meta">Mastercard payments · Türkiye · <span class="nw">2025–now</span></div></div>
+        </div>
+        <ul>
+          <li>Built Dashboard, Cards, Campaigns and Profile, and strengthened the app architecture</li>
+          <li>Served as tech lead, designing solutions and guiding the iOS, Android and middleware teams through delivery</li>
+        </ul>
+        <ul class="tags"><li>Tech lead</li><li>Payments</li></ul>
+      </article>
+
+      <article class="card">
+        <div class="top">
+          <img src="assets/icons/fortebank.jpg" alt="ForteBank icon" loading="lazy">
+          <div><h3>ForteBank</h3><div class="meta">Retail bank · Kazakhstan · <span class="nw">2025</span></div></div>
+        </div>
+        <ul>
+          <li>Designed the initial app architecture</li>
+          <li>Shaped early product decisions, including dashboard scope and technical constraints</li>
+        </ul>
+        <ul class="tags"><li>Architecture</li><li>Fintech</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="indie">
+  <div class="wrap">
+    <div class="eyebrow">Indie project</div>
+    <h2>Built and shipped solo</h2>
+    <p class="lede">My own App Store game. I handled everything from idea to release.</p>
+
+    <div class="feature">
+      <div>
+        <div class="app-head">
+          <img src="assets/icons/taboo.jpg" alt="Taboo Party app icon" width="72" height="72">
+          <div>
+            <h3>Taboo Party</h3>
+            <small>Party word game · iPhone &amp; iPad</small>
+          </div>
+        </div>
+        <p>A pass-the-phone party game for two teams: describe the word without saying the forbidden ones.</p>
+        <ul>
+          <li>Modular codebase, with the project generated by Tuist</li>
+          <li>Server-driven decks: new free and premium content goes live without an app release</li>
+          <li>In-app purchases, six languages, and fully playable offline</li>
+        </ul>
+        <ul class="tags">
+          <li>SwiftUI</li><li>Tuist</li><li>Modularization</li><li>MVVM</li><li>StoreKit</li>
+        </ul>
+        <a class="appstore" href="https://apps.apple.com/app/taboo-party/id6785232053" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.77-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.9 1.15 9.15.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.77-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.41-3.67ZM14.1 5.86c.63-.77 1.06-1.83.94-2.9-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.51 2.69-1.27Z"/></svg>
+          Download on the App Store
+        </a>
+      </div>
+      <div class="shots" tabindex="0" aria-label="Taboo Party screenshots, scroll horizontally">
+        <img src="assets/taboo/02.jpg" alt="Taboo Party: guessing screen" loading="lazy">
+        <img src="assets/taboo/03.jpg" alt="Taboo Party: avoid taboo words" loading="lazy">
+        <img src="assets/taboo/04.jpg" alt="Taboo Party: deck selection" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience</div>
+    <h2>Where I've worked</h2>
+    <p class="lede">From guidance algorithms for flight vehicles to apps in millions of pockets.</p>
+    <ol class="timeline">
+      <li>
+        <div class="when">Jul 2025 – Present</div>
+        <div>
+          <h3>Staff Software Developer · <span class="org">Commencis</span></h3>
+          <p>Designed a SwiftUI MVVM-Coordinator architecture adopted across projects, hardened APIs with App Check and App Attest, and introduced AI-assisted workflows with Claude Code.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">Nov 2023 – Jul 2025</div>
+        <div>
+          <h3>Senior Software Developer (iOS) · <span class="org">Ounass</span></h3>
+          <p>Built catalog, search and experimentation features.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">Apr 2022 – Nov 2023</div>
+        <div>
+          <h3>Software Engineer (iOS) · <span class="org">Commencis</span></h3>
+          <p>Built features for the Pegasus Airlines app, including AR luggage measurement.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">Sep 2019 – Apr 2022</div>
+        <div>
+          <h3>Algorithm Developer · <span class="org">Roketsan</span></h3>
+          <p>Built flight simulations and guidance, navigation and control algorithms in Python and MATLAB.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">2014 – 2019</div>
+        <div>
+          <h3>BSc Aerospace Engineering · <span class="org">Istanbul Technical University</span></h3>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Toolbox</div>
+    <h2>Skills</h2>
+    <p class="lede">Mostly native iOS, plus hands-on Android and the CI/CD and tooling around it.</p>
+    <div class="skills">
+      <div><h3>iOS</h3><ul class="tags"><li>Swift</li><li>SwiftUI</li><li>UIKit</li><li>Swift Concurrency</li><li>Combine</li><li>Core Data</li><li>StoreKit</li><li>ARKit</li><li>SceneKit</li><li>RealityKit</li><li>App Check</li><li>App Attest</li></ul></div>
+      <div><h3>Architecture &amp; Quality</h3><ul class="tags"><li>MVVM</li><li>MVVM-Coordinator</li><li>TCA</li><li>Dependency Injection</li><li>Unit &amp; UI Testing</li><li>REST APIs</li></ul></div>
+      <div><h3>Firebase &amp; Experiments</h3><ul class="tags"><li>Firestore</li><li>Remote Config</li><li>Crashlytics</li><li>Analytics</li><li>Statsig</li><li>A/B Testing</li></ul></div>
+      <div><h3>Android &amp; other languages</h3><ul class="tags"><li>Kotlin</li><li>Jetpack Compose</li><li>Python</li><li>MATLAB</li><li>C / C#</li></ul></div>
+      <div><h3>CI/CD &amp; AI tooling</h3><ul class="tags"><li>Fastlane</li><li>GitHub Actions</li><li>Jenkins</li><li>Claude Code</li><li>Codex</li></ul></div>
+      <div><h3>Spoken languages</h3><ul class="tags"><li>English (C1)</li><li>Turkish (native)</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's build something.</h2>
+    <p class="lede">I'm open to senior, staff and lead iOS roles.</p>
+    <div class="buttons">
+      <a class="btn primary" href="mailto:imrenridvan@gmail.com">imrenridvan@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/ridvan-imren/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/ridvanImren" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Ridvan Imren · App names and icons belong to their respective owners.</footer>
+
+</body>
+</html>
